@@ -1,11 +1,15 @@
 import 'dotenv/config';
 import express from 'express';
 import cors from 'cors';
-import { initDB } from process.env.NODE_ENV === 'production' ? './db-mysql.js' : './db.js';
 import { authMiddleware } from './auth.js';
 import authRoutes from './authRoutes.js';
 import adminRoutes from './adminRoutes.js';
 import routes from './routes.js';
+
+const dbModule = await (process.env.NODE_ENV === 'production'
+  ? import('./db-mysql.js')
+  : import('./db.js'));
+const { initDB } = dbModule;
 
 const app = express();
 const PORT = process.env.PORT || 5000;
