@@ -1,0 +1,54 @@
+.kanban {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.kanban-column {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-secondary);
+  border-radius: 12px;
+  padding: 20px;
+  min-height: 600px;
+  border: 1px solid var(--border-color);
+}
+
+.column-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid;
+  letter-spacing: -0.3px;
+}
+
+/* Status-specific header colors */
+.kanban-column-not-started .column-title {
+  border-bottom-color: var(--color-not-started);
+  color: var(--color-not-started);
+}
+
+.kanban-column-in-progress .column-title {
+  border-bottom-color: var(--color-in-progress);
+  color: var(--color-in-progress);
+}
+
+.kanban-column-blocked .column-title {
+  border-bottom-color: var(--color-blocked);
+  color: var(--color-blocked);
+}
+
+.kanban-column-done .column-title {
+  border-bottom-color: var(--color-done);
+  color: var(--color-done);
+}
+
+.column-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+}

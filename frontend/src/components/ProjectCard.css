@@ -1,0 +1,96 @@
+.project-card {
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 16px;
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: var(--shadow);
+}
+
+.project-card:hover {
+  box-shadow: var(--shadow-hover);
+  border-color: var(--text-secondary);
+}
+
+/* Health indicator - left border */
+.card-health-indicator {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  border-radius: 10px 0 0 10px;
+}
+
+.project-card.health-green .card-health-indicator {
+  background-color: var(--health-green);
+}
+
+.project-card.health-yellow .card-health-indicator {
+  background-color: var(--health-yellow);
+}
+
+.project-card.health-red .card-health-indicator {
+  background-color: var(--health-red);
+}
+
+.card-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+  word-break: break-word;
+  padding-left: 8px;
+}
+
+.card-description {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin: 0;
+  padding-left: 8px;
+  line-height: 1.4;
+}
+
+.card-next-action {
+  font-size: 12px;
+  color: var(--text-secondary);
+  background-color: var(--bg-secondary);
+  padding: 8px;
+  border-radius: 6px;
+  margin-left: 8px;
+  border-left: 2px solid var(--text-tertiary);
+}
+
+.card-next-action strong {
+  color: var(--text-primary);
+}
+
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-left: 8px;
+}
+
+.tag {
+  display: inline-block;
+  background-color: var(--bg-secondary);
+  color: var(--text-secondary);
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+
+.card-meta {
+  font-size: 11px;
+  color: var(--text-tertiary);
+  padding-left: 8px;
+  margin-top: 4px;
+}

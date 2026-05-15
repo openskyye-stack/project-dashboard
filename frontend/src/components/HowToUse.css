@@ -1,0 +1,199 @@
+.tutorial-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: flex-end;
+  z-index: 1000;
+  animation: fadeIn 0.2s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.tutorial-panel {
+  background-color: var(--bg-primary);
+  width: 100%;
+  max-width: 600px;
+  height: 100vh;
+  overflow-y: auto;
+  box-shadow: -4px 0 16px rgba(0, 0, 0, 0.2);
+  animation: slideIn 0.3s ease-out;
+  padding: 40px;
+  position: relative;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.tutorial-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  font-size: 32px;
+  color: var(--text-secondary);
+  padding: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.tutorial-close:hover {
+  color: var(--text-primary);
+}
+
+.tutorial-content {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding-right: 20px;
+}
+
+.tutorial-content h1 {
+  font-size: 28px;
+  font-weight: 600;
+  margin-top: 0;
+}
+
+.tutorial-content h2 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+
+.tutorial-content section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.tutorial-content p {
+  margin: 0;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.tutorial-content ol,
+.tutorial-content ul {
+  margin: 0;
+  padding-left: 20px;
+  color: var(--text-secondary);
+}
+
+.tutorial-content li {
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
+
+.tutorial-content strong {
+  color: var(--text-primary);
+}
+
+.tutorial-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 12px;
+}
+
+.tutorial-card {
+  background-color: var(--bg-secondary);
+  border-radius: 8px;
+  padding: 16px;
+  border-left: 4px solid var(--text-tertiary);
+}
+
+.tutorial-card h3 {
+  font-size: 13px;
+  font-weight: 600;
+  margin: 0 0 8px 0;
+  color: var(--text-primary);
+}
+
+.tutorial-card p {
+  font-size: 12px;
+  margin: 0;
+  color: var(--text-secondary);
+}
+
+.tutorial-colors {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.color-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.color-dot {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.color-dot.green {
+  background-color: var(--health-green);
+}
+
+.color-dot.yellow {
+  background-color: var(--health-yellow);
+}
+
+.color-dot.red {
+  background-color: var(--health-red);
+}
+
+.color-item > div:last-child {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.color-item strong {
+  display: block;
+  color: var(--text-primary);
+}
+
+.color-item p {
+  font-size: 13px;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .tutorial-panel {
+    max-width: 100%;
+    padding: 24px;
+  }
+
+  .tutorial-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tutorial-content {
+    gap: 24px;
+  }
+}
