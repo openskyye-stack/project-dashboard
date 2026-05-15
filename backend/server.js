@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import express from 'express';
 import cors from 'cors';
 import { initDB } from process.env.NODE_ENV === 'production' ? './db-mysql.js' : './db.js';
