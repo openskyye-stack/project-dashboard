@@ -5,6 +5,8 @@ import { authMiddleware } from './auth.js';
 import authRoutes from './authRoutes.js';
 import adminRoutes from './adminRoutes.js';
 import routes from './routes.js';
+import challengeRoutes from './challengeRoutes.js';
+import { initChallengeSchema } from './challengeSchema.js';
 
 const dbModule = await (process.env.NODE_ENV === 'production'
   ? import('./db-mysql.js')
@@ -18,7 +20,7 @@ const HOST = process.env.HOST || 'localhost';
 app.use(cors({
   origin: process.env.CORS_ORIGIN || '*'
 }));
-app.use(express.json());
+app.use(express.json({ limit: '12mb' }));
 
 // Public auth routes (no token required)
 app.use('/api/auth', authRoutes);
@@ -28,6 +30,7 @@ app.use('/api/admin', adminRoutes);
 
 // Protected routes (require token)
 app.use('/api', authMiddleware, routes);
+app.use('/api/challenge', authMiddleware, challengeRoutes);
 
 app.get('/health', (req, res) => {
   res.json({ status: 'ok' });
@@ -36,6 +39,7 @@ app.get('/health', (req, res) => {
 async function start() {
   try {
     await initDB();
+    await initChallengeSchema();
     const env = process.env.NODE_ENV || 'development';
     const dbType = process.env.DB_TYPE || 'sqlite';
     console.log(`Starting server in ${env} mode with ${dbType} database`);

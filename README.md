@@ -13,6 +13,14 @@ A personal project tracking dashboard with offline-first sync, built for manual 
 - **Rich Data Model**: Track accomplishments with dates, next actions, tags, links, notes, and more
 - **Immediate Persistence**: Changes save instantly, no manual "Save" button
 
+## Apps in this repo
+
+- **`frontend/`** — the project dashboard itself (kanban board, offline sync).
+- **`web/`** — *75 Adaptive*, a 75-day challenge tracker that adapts its rules to
+  the user's age and mobility. Standalone Vite app sharing this backend and its
+  login. See [`web/README.md`](web/README.md).
+- **`backend/`** — Express + SQLite, serving both.
+
 ## Tech Stack
 
 - **Frontend**: React 18 + TanStack Query (offline sync)
